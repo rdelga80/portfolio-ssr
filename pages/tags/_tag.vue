@@ -15,36 +15,21 @@
 </template>
 
 <script>
-import { split } from 'lodash'
+import { filter, includes } from 'lodash'
 import ArticlesIndex from '@/components/ArticlesIndex'
 
 export default {
-  name: 'PagesIndex',
+  name: 'TagSpecific',
   components: {
     ArticlesIndex
   },
-  async asyncData({ $content }) {
+  async asyncData({ $content, params }) {
     const articles = await $content('articles')
       .only(['createdAt', 'path', 'title', 'description', 'tags'])
-      .sortBy('createdAt', 'desc')
       .fetch()
 
     return {
-      articles
-    }
-  },
-
-  methods: {
-    tags(tags) {
-      return split(tags, ',') || []
-    },
-    translateDate(dateUTC) {
-      return new Intl.DateTimeFormat('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }).format(new Date(dateUTC))
+      articles: filter(articles, article => includes(article.tags, params.tag))
     }
   }
 }

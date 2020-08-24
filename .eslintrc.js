@@ -23,6 +23,9 @@ module.exports = {
       'startTag': 'never',
       'endTag': 'never',
       'selfClosingTag': 'never'
-    }]
+    }],
+    'vue/html-self-closing': 'off',
+    'vue/no-unused-vars': 'off',
+    'vue/require-default-prop': 'off'
   }
 }

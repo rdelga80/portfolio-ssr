@@ -1,6 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
-
-export default {
+module.exports = {
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -10,7 +8,7 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'static',
+  target: 'server',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -31,7 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/global.scss'
+    'assets/scss/global.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -48,12 +46,14 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/google-analytics',
     '@nuxtjs/vuetify'
   ],
+  googleAnalytics: {
+    id: 'UA-175529529-1'
+  },
   /*
   ** Nuxt.js modules
   */
@@ -61,7 +61,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-webfontloader'
   ],
   /*
   ** Axios module configuration
@@ -78,21 +79,11 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+    customVariables: ['~/assets/scss/variables.scss'],
+    defaultAssets: {
+      font: false
+    },
+    treeShake: true
   },
   /*
   ** Build configuration

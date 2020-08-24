@@ -1,0 +1,53 @@
+@import '@/assets/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap');
+
+body {
+  background: $background-color;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.v-main {
+  justify-content: center;
+
+  &__wrap {
+    flex: 0 !important;
+    display: flex;
+    justify-content: center;
+
+    > div {
+      width: 60rem;
+    }
+
+    aside {
+      flex: 0 1 25%;
+    }
+
+    .container {
+      flex: 1 1 36rem;
+    }
+  }
+}
+
+.v-toolbar__content {
+  background: $header-bg-color;
+  color: rgba(245, 245, 245, 0.8) !important;
+
+  a {
+    color: rgba(245, 245, 245, 0.8) !important;
+    text-decoration: none;
+  }
+}
+
+.nuxt-content {
+  a {
+    color: white;
+  }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 1.5em;
+  }
+}

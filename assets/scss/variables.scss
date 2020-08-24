@@ -1,0 +1,47 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+$background-color: rgb(65, 136, 163);
+$main-font-color: rgba(245, 245, 245, 0.8);
+$header-bg-color: $background-color;
+
+$body-font-family: 'Pragati Narrow', sans-serif;
+$heading-font-family: 'Pragati Narrow', sans-serif;
+$headings: (
+  'h2': (
+    'size': 3.75rem,
+    'weight': 700,
+    'letter-spacing': 0,
+    'line-height': 0.9
+  ),
+  'title': (
+    'line-height': 1
+  ),
+  'subtitle-1': (
+    'line-height': 1.1
+  ),
+  'body-1': (
+    'size': 2.6rem,
+    'weight': 300,
+    'letter-spacing': 0,
+    'line-height': 1
+  )
+);
+$line-height-root: 1.4;
+
+$max-screen-width: 36rem;
+
+$material-light: (
+  'app-bar': $header-bg-color,
+  'background': $background-color,
+  'text': (
+    'primary': $main-font-color
+  )
+);
+
+$container-max-widths: (
+  'md': $max-screen-width,
+  'lg': $max-screen-width,
+  'xl': $max-screen-width
+);
