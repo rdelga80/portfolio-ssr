@@ -1,7 +1,13 @@
 <template>
   <v-container fluid>
     <v-container fluid>
-      <article>
+      <article class="slug-article">
+        <div class="doc-image">
+          <img
+            :src="doc.headerImg"
+            :alt="doc.description"/>
+        </div>
+
         <h1 class="text-h2">
           {{ doc.title }}
         </h1>
@@ -11,7 +17,7 @@
         </v-flex>
 
         <nuxt-content
-          class="text-body-1 pt-3"
+          class="pt-3 pb-5"
           :document="doc"/>
 
         <strong>
@@ -53,16 +59,36 @@ export default {
     tags(tagsValues) {
       return formatTags(tagsValues)
     }
+  },
+  head() {
+    return {
+      title: this.doc.title,
+      meta: [
+        { property: 'og:title', content: this.doc.title },
+        { property: 'og:image', content: this.doc.headerImg },
+        { property: 'og:description', content: this.doc.description.slice(0, 55) },
+        { property: 'og:type', content: 'article' }
+      ]
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/variables';
+.slug-article {
+  margin-bottom: 80px;
+}
 
-.nuxt-content p {
-  font-size: 2.6rem;
-  letter-spacing: 0;
-  line-height: 1rem;
+.doc-image {
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid white;
+  margin-bottom: 1rem;
+
+  img {
+    width: 100%;
+    margin-top: -4%;
+    filter: opacity(60%);
+  }
 }
 </style>

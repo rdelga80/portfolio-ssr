@@ -50,4 +50,68 @@ body {
     font-size: 3rem;
     line-height: 1.5em;
   }
+
+  h3 {
+    font-size: 2.75rem;
+    line-height: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h4 {
+    font-size: 2.05rem;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 1em;
+  }
+
+  code {
+    color: white !important;
+    padding: 1px 5px !important;
+    font-size: 14px !important;
+    background: #1b4c5f !important;
+    font-weight: 400 !important;
+  }
+
+  pre {
+    background: #1b4c5f !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+
+    .token {
+      &.keyword,
+      &.attr-value {
+        color: #43b2dc;
+      }
+
+      &.selector,
+      &.attr-name,
+      &.char,
+      &.builtin,
+      &.inserted,
+      &.string,
+      &.number {
+        color: #3dff5f;
+      }
+
+      &.function,
+      &.tag {
+        color: #9ce3ff;
+      }
+
+      &.operator {
+        color: inherit;
+        background: inherit;
+      }
+
+      &.punctuation {
+        color: inherit;
+      }
+    }
+  }
 }

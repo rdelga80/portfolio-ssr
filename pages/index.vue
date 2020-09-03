@@ -5,6 +5,8 @@
         {{ article.title }}
       </template>
 
+      <template #image="{ article }"/>
+
       <template #created="{ article }"/>
 
       <template #description="{ article }"/>
@@ -25,7 +27,7 @@ export default {
   },
   async asyncData({ $content }) {
     const articles = await $content('articles')
-      .only(['createdAt', 'path', 'title', 'description', 'tags'])
+      .only(['createdAt', 'path', 'title', 'description', 'tags', 'headerImg'])
       .sortBy('createdAt', 'desc')
       .fetch()
 
@@ -45,6 +47,11 @@ export default {
         month: 'long',
         day: 'numeric'
       }).format(new Date(dateUTC))
+    }
+  },
+  head() {
+    return {
+      title: 'Home'
     }
   }
 }

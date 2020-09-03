@@ -8,7 +8,7 @@ module.exports = {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'static',
+  target: 'server',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -29,7 +29,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'assets/scss/global.scss'
+    '~/assets/scss/global.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -64,6 +64,11 @@ module.exports = {
     '@nuxt/content',
     'nuxt-webfontloader'
   ],
+  webfontloader: {
+    google: {
+      families: ['Pragati+Narrow:400,700']
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -90,5 +95,8 @@ module.exports = {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  generate: {
+    fallback: true
   }
 }
