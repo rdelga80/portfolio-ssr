@@ -112,13 +112,14 @@ export default {
 }
 
 .image-container {
-  height: 300px;
+  height: 100%;
+  max-height: 300px;
   overflow: hidden;
   border: 2px solid white;
 
   img {
     width: 100%;
-    margin-top: -4%;
+    margin-bottom: -6px;
     filter: opacity(60%);
   }
 }
