@@ -1,5 +1,4 @@
 @import '@/assets/scss/variables';
-@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap');
 
 :root {
   --wrap-div-width: 100%;
@@ -51,6 +50,10 @@ main {
     color: rgba(245, 245, 245, 0.8) !important;
     text-decoration: none;
   }
+}
+
+hr {
+  margin-top: 1rem;
 }
 
 .nuxt-content {
@@ -126,4 +129,8 @@ main {
       }
     }
   }
+}
+
+.v-application ol {
+  padding-bottom: 1rem !important;
 }

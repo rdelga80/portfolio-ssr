@@ -34,7 +34,7 @@
           </slot>
         </v-flex>
 
-        <v-flex class="text-body-1" py-5>
+        <v-flex class="description" py-5>
           <slot
             name="description"
             :article="article">
@@ -122,5 +122,10 @@ export default {
     margin-bottom: -6px;
     filter: opacity(60%);
   }
+}
+
+.description {
+  font-size: 1.8rem;
+  line-height: 1.7rem;
 }
 </style>
