@@ -53,7 +53,8 @@ main {
 }
 
 hr {
-  margin-top: 1rem;
+  margin: 1rem 0;
+  padding: 0 2em;
 }
 
 .nuxt-content {
@@ -68,7 +69,7 @@ hr {
 
   h3 {
     font-size: 2.75rem;
-    line-height: 1.5em;
+    line-height: 0.9em;
     margin-bottom: 0.5em;
   }
 
@@ -109,6 +110,7 @@ hr {
       &.char,
       &.builtin,
       &.inserted,
+      &.boolean,
       &.string,
       &.number {
         color: #3dff5f;
@@ -129,8 +131,19 @@ hr {
       }
     }
   }
+
+  ol li {
+    font-size: 1.25rem;
+    line-height: 1em;
+  }
 }
 
-.v-application ol {
-  padding-bottom: 1rem !important;
+.v-application {
+  a {
+    color: white !important;
+  }
+
+  ol {
+    padding-bottom: 1rem !important;
+  }
 }

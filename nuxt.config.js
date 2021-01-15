@@ -35,8 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
-  plugins: [
-  ],
+  plugins: [],
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -73,7 +72,11 @@ module.exports = {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: process.env.NODE_ENV === 'development'
+      ? 'http://localhost:5001/rdelgado-portfolio/us-central1/ssrapp'
+      : 'https://us-central1-rdelgado-portfolio.cloudfunctions.net/ssrapp'
+  },
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration
@@ -97,6 +100,12 @@ module.exports = {
   build: {
   },
   generate: {
-    fallback: true
+    fallback: true,
+    async routes () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true }).only(['path']).fetch()
+
+      return files.map(file => file.path === '/index' ? '/' : file.path)
+    }
   }
 }

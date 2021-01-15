@@ -7,6 +7,7 @@ tags: vuejs,methology,programming,anticlever
 
 Anti-Clever TOC
 * Part 1: Introduction (active)
+* Part 2: [Flattening Component Structure](/articles/anti-clever-component-structure)
 
 ---
 

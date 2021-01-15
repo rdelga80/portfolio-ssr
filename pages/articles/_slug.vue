@@ -8,7 +8,7 @@
             :alt="doc.description"/>
         </div>
 
-        <h1 class="text-h2">
+        <h1 class="article-title text-h2">
           {{ doc.title }}
         </h1>
 
@@ -37,18 +37,23 @@
           </span>
         </n-link>
       </article>
+
+      <FooterContact/>
     </v-container>
   </v-container>
 </template>
 
 <script>
 import Date from '@/components/TheDate'
+import FooterContact from '@/components/FooterContact'
 import { formatTags } from '@/assets/js/helpers'
+import axios from 'axios'
 
 export default {
   name: 'Articles',
   components: {
-    Date
+    Date,
+    FooterContact
   },
   async asyncData({ $content, params }) {
     const doc = await $content('articles', (params.slug || 'index')).fetch()
@@ -56,6 +61,11 @@ export default {
     return { doc }
   },
   methods: {
+    test() {
+      axios.post('http://localhost:5001/rdelgado-portfolio/us-central1/ssrapp/sendEmail/')
+        .then(console.log)
+        .catch(console.log)
+    },
     tags(tagsValues) {
       return formatTags(tagsValues)
     }
@@ -77,6 +87,10 @@ export default {
 <style lang="scss" scoped>
 .slug-article {
   margin-bottom: 80px;
+
+  .article-title {
+    cursor: pointer;
+  }
 }
 
 .doc-image {

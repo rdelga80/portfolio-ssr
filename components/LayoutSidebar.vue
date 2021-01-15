@@ -101,7 +101,7 @@
                 v-for="(tag, index) in tags"
                 :key="index"
                 tag="div"
-                class="pa-1 link"
+                class="px-1 link"
                 :to="{ name: 'tags-tag', params: { tag } }">
                 {{ tag }}
               </n-link>
@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import { compact, flatMap, split } from 'lodash'
+import { compact, flatMap, split, uniq } from 'lodash'
 import Date from '@/components/TheDate'
 
 export default {
@@ -143,7 +143,14 @@ export default {
   }),
   computed: {
     tags() {
-      return compact(flatMap(this.articles, article => split(article.tags, ',')))
+      const tags = compact(
+        flatMap(
+          this.articles,
+          article => split(article.tags, ',')
+        )
+      )
+
+      return uniq(tags).sort()
     }
   },
   async beforeMount() {

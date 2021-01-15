@@ -5,6 +5,14 @@ headerImg: https://firebasestorage.googleapis.com/v0/b/rdelgado-portfolio.appspo
 tags: vuejs,testing,jest,vuetestutils
 ---
 
+Vue Testing Basics TOC
+* Part 1: Introduction - Basic Setup (active)
+* [Part 2: Testing Mentality](/articles/testing-mentality)
+* [Part 3: Testing a Single File Component - Computed Properties](/articles/vuejs-testing-single-file-components)
+
+---
+
+
 Unit Testing in Frontend is like the janitor's role for a dev team. They're kind of gross, really irritating, and most times gets left undone.
 
 There was a reason I set out to specialize in Unit Testing and it's because most devs don't want to do it. In an effort to find a niche to help with job prospects, I stumbled into a really enjoyable aspect of programming that I think has really made me a much better developer.
@@ -47,7 +55,7 @@ In essence `mount` will `mount` your component file along with any children with
 
 While I've heard it recommended to use `mount` in many guides and manuals, I think it can be impractical. A parent component that cascades into several children could be a serious pain when writing tests.
 
-##### Structuring Your Test
+#### Structuring Your Test
 
 There's a few main structural elements to a Test file: `describe`, `it`/`test`, and `beforeEach`.
 
@@ -74,8 +82,36 @@ describe('Describes the test file you\'re running', () => {
 })
 ```
 
-##### Create Wrapper
+#### Create Wrapper
 
 Another handy tool is `createLocalVue`.
 
-You'll use this function when needing to mount a plugin that is breaking one of your tests.
+You'll use this function when needing to mount a plugin that is breaking one of your tests, and most importantly will be used when adding mocked `Vuex` functionality to your tests.
+
+```js
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import TestFile from '@/components/TestFile.vue'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+describe('Describes the test file you\'re running', () => {
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = shallowMount(TestFile, {
+      localVue,
+      store: new Vuex.Store({
+        ...
+      })
+    })
+  })
+
+  it('this is a test within the describe block', () => {
+    // wrapper will be refreshed on every subsequent test within this describe
+  })
+})
+```
+
+This will be the starting point for the majority of your testing. This _doesn't_ include store files,which will be covered in a section to themselves.
