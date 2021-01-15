@@ -1,20 +1,11 @@
-# portfolio-ssr
+# Portfolio of Ricardo Delgado
 
-## Build Setup
+https://www.ricdelgado.com
 
-```bash
-# install dependencies
-$ yarn install
+Static Generated website/portfolio focused on projects developed by Ricardo Delgado, while also focusing on Test Driven Development (TDD), Component Driven Development (CDD), and Anti-Clever Development.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## Technologies
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+* VueJS
+* NuxtJS
+* Firebase
